@@ -1,26 +1,94 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "GeneralSans";
+  src: url("/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-secondary: #2271FF;
+  --color-accent: #F6F6F6;
+  --color-text-dark: #1E1E1E;
+  --color-text-light: #5A5A5A;
+  --color-background: #F6F6F6;
+
+
+  --font-open-sans: var(--font-open-sans);
+  --font-general-sans: "GeneralSans", sans-serif;
+  --font-lato: var(--font-lato);
+  --font-syne: var(--font-syne);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-background;
+  }
+
+  p {
+    @apply font-open-sans font-normal text-base text-text-light;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+
+
+
+  .max-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+}
+
+@utility gradient-text {
+  background: linear-gradient(286.76deg, rgba(34, 113, 255, 0.9) 11.6%, rgba(136, 61, 237, 0.945933) 45.84%, #FC34DD 89.56%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility primary {
+  background: linear-gradient(286.76deg, rgba(34, 113, 255, 0.9) 11.6%, rgba(136, 61, 237, 0.945933) 45.84%, #FC34DD 89.56%);
+}
+
+@utility overlay {
+  background: linear-gradient(179.31deg, rgba(120, 120, 120, 0.3) 1.21%, rgba(0, 0, 0, 0.95) 94.06%);
+
+}
+
+/* Padding Utilities */
+@utility fp {
+  padding-left: clamp(1.25rem, -0.1786rem + 7.1429vw, 6.25rem);
+  padding-right: clamp(1.25rem, -0.1786rem + 7.1429vw, 6.25rem);
+  padding-top: clamp(2.5rem, 1.8929rem + 3.0357vw, 4.625rem);
+  padding-bottom: clamp(2.5rem, 1.8929rem + 3.0357vw, 4.625rem);
+}
+
+@utility fpx {
+  padding-left: clamp(1.25rem, -0.1786rem + 7.1429vw, 6.25rem);
+  padding-right: clamp(1.25rem, -0.1786rem + 7.1429vw, 6.25rem);
+}
+
+@utility fpy {
+  padding-top: clamp(2.5rem, 1.8929rem + 3.0357vw, 4.625rem);
+  padding-bottom: clamp(2.5rem, 1.8929rem + 3.0357vw, 4.625rem);
+}
+
+@utility fpl {
+  padding-left: clamp(1.25rem, -0.1786rem + 7.1429vw, 6.25rem);
+}
+
+@utility fpr {
+  padding-right: clamp(1.25rem, -0.1786rem + 7.1429vw, 6.25rem);
+}
+
+@utility fpt {
+  padding-top: clamp(2.5rem, 1.8929rem + 3.0357vw, 4.625rem);
+}
+
+@utility fpb {
+  padding-bottom: clamp(2.5rem, 1.8929rem + 3.0357vw, 4.625rem);
 }
