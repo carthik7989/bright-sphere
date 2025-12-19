@@ -12,7 +12,6 @@ import Who from "./Components/Who";
 import Footer from "./Components/Footer";
 import StickyBar from "./Components/StickyBar";
 import Toolkit from "./Components/Toolkit";
-import Testimonials from "./Components/Testimonials";
 import Test from "./Components/Test";
 
 export default function Home() {
@@ -29,7 +28,6 @@ export default function Home() {
       <Certification />
       <CallToAction />
       <Test />
-      <Testimonials />
       <Trust />
       <Who />
       <Footer />

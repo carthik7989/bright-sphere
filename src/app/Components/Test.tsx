@@ -12,6 +12,7 @@ export default function Test() {
     const swiperRef = useRef<any>(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [rotationIndex, setRotationIndex] = useState(0);
+    const [angleStep, setAngleStep] = useState(25);
     const prevRealIndex = useRef(0);
 
     const testimonials = [
@@ -45,6 +46,25 @@ export default function Test() {
         },
     ];
 
+    // Responsive Angle Step
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 640) {
+                setAngleStep(15); // Tighter spacing on mobile
+            } else if (window.innerWidth < 1024) {
+                setAngleStep(20); // Tighter spacing on mobile
+            } else {
+                setAngleStep(25); // Original spacing on desktop
+            }
+        };
+
+        // Initial check
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     // Handle slide change to drive rotation
     const handleSlideChange = (swiper: any) => {
         const currentRealIndex = swiper.realIndex;
@@ -67,26 +87,30 @@ export default function Test() {
 
     return (
         <section className="relative w-full overflow-hidden">
-            <div className="relative w-full flex flex-col items-center gap-56 fp max-container">
+            <div className="relative w-full flex flex-col items-center gap-38 md:gap-56 fp max-container">
 
-                <div className="absolute -top-1/2 left-0 w-full bg-white h-[660px] rounded-[100%]">
+                {/* 
+                  Container for the white circle arc. 
+                  - w-[150%] makes it wider than the screen (flatter arc).
+                  - left-1/2 -translate-x-1/2 centers it horizontally.
+                  - top values adjust vertical visual position.
+                */}
+                <div className="absolute -top-1/7 sm:-top-1/3 md:-top-1/2 left-1/2 -translate-x-1/2 w-[150%] sm:w-[105%] md:w-[120%] lg:w-full bg-white h-[240px]  sm:h-[360px] md:h-[600px] lg:h-[620px] xl:h-[640px] xxl:h-[660px] rounded-[100%]">
                     {testimonials.map((testimonial, index) => {
                         // Rotation Logic
                         const total = testimonials.length;
 
-                        // Smart wrapping: Find the "virtual" index that is closest to current rotationIndex
-                        // This ensures items take the shortest path visually
+                        // Smart wrapping for shortest path
                         let virtualIndex = index;
                         while (virtualIndex - rotationIndex > total / 2) virtualIndex -= total;
                         while (virtualIndex - rotationIndex < -total / 2) virtualIndex += total;
 
                         const diff = virtualIndex - rotationIndex;
 
-                        // Align center (90 deg) is diff = 0.
-                        const angleDeg = 90 + (diff * 25);
+                        // Use angleStep state for responsive spacing
+                        const angleDeg = 90 + (diff * angleStep);
                         const angleRad = (angleDeg * Math.PI) / 180;
 
-                        // Percentage positions (Center is 50%, 50%)
                         const left = 50 + 50 * Math.cos(angleRad);
                         const top = 50 + 50 * Math.sin(angleRad);
 
@@ -95,7 +119,7 @@ export default function Test() {
                         return (
                             <div
                                 key={index}
-                                className={`absolute rounded-full overflow-hidden border-4 transition-all duration-500 ease-out cursor-pointer ${isActive ? 'w-24 h-24 border-secondary shadow-[0_0_20px_rgba(34,113,255,0.4)] z-20 scale-110' : 'w-20 h-20 border-white grayscale opacity-70 z-10 hover:opacity-100 hover:grayscale-0'}`}
+                                className={`absolute rounded-full overflow-hidden border-2 md:border-4 transition-all duration-500 ease-out cursor-pointer ${isActive ? 'w-10 h-10 mlg:w-13 mlg:h-13 md:w-18 md:h-18 xl:w-22 xl:h-22 xxl:w-24 xxl:h-24 border-secondary shadow-[0_0_20px_rgba(34,113,255,0.4)] z-20 scale-110' : 'w-7 h-7 mlg:w-10 mlg:h-10 md:w-14 md:h-14 xl:w-18 xl:h-18 xxl:w-20 xxl:h-20 border-white grayscale opacity-70 z-10 hover:opacity-100 hover:grayscale-0'}`}
                                 style={{
                                     left: `${left}%`,
                                     top: `${top}%`,
@@ -111,14 +135,14 @@ export default function Test() {
                     })}
                 </div>
                 {/* First Row */}
-                <div className="flex flex-col items-center gap-5">
+                <div className="flex flex-col items-center gap-2 sm:gap-4 md:gap-5">
                     <Pill text="Testimonials" />
-                    <h2 className="text-[42px] font-general-sans font-semibold text-text-dark z-1">Parent <span className="gradient-text">Testimonials</span></h2>
+                    <h2 className="text-xl mlg:text-2xl sm:text-3xl lg:text-[32px] xl:text-4xl xxl:text-[42px] font-general-sans font-semibold text-text-dark z-1">Parent <span className="gradient-text">Testimonials</span></h2>
                 </div>
                 {/* End of First Row  */}
 
                 {/* Second Row */}
-                <div className="relative max-w-[60%] h-full">
+                <div className="relative w-full lg:max-w-[70%] xl:max-w-[60%] h-full">
                     <Swiper
                         modules={[Navigation, Autoplay]}
                         loop={true}
@@ -128,6 +152,20 @@ export default function Test() {
                             delay: 5000,
                             disableOnInteraction: false,
                         }}
+                        breakpoints={{
+                            0: {
+                                slidesPerView: 1,
+                                spaceBetween: 20,
+                            },
+                            768: {
+                                slidesPerView: 1,
+                                spaceBetween: 40,
+                            },
+                            1024: {
+                                slidesPerView: 1,
+                                spaceBetween: 50,
+                            },
+                        }}
                         className="w-full h-full [&_.swiper-wrapper]:items-stretch"
                         onSwiper={(swiper) => {
                             swiperRef.current = swiper;
@@ -136,9 +174,9 @@ export default function Test() {
                     >
                         {testimonials.map((testimonial, index) => (
                             <SwiperSlide key={index} className="flex h-auto">
-                                <div className="flex flex-col flex-1 h-full gap-8 bg-white rounded-t-[30px] rounded-br-[30px] px-18 pt-22 pb-8">
-                                    <div className="text-lg font-open-sans italic">“{testimonial.quote}”</div>
-                                    <div className="mt-auto text-[22px] font-lato font-medium text-text-dark self-end">
+                                <div className="flex flex-col flex-1 h-full gap-3 md:gap-8 bg-white rounded-t-[30px] rounded-br-[30px] px-7 sm:px-10 md:px-18 pt-10 sm:pt-12 md:pt-22 pb-5 md:pb-8">
+                                    <div className="text-sm sm:text-base md:text-lg font-open-sans italic">“{testimonial.quote}”</div>
+                                    <div className="mt-auto text-base sm:text-lg md:text-[22px] font-lato font-medium text-text-dark self-end">
                                         — {testimonial.name}
                                     </div>
                                 </div>
@@ -150,17 +188,17 @@ export default function Test() {
 
 
                     {/* Quote Icon */}
-                    <Image className="absolute -top-6 left-2 z-1" src="/icons/quote.svg" alt="quote" width={70} height={45.66} />
+                    <Image className="absolute -top-4 md:-top-6 left-2 z-1 w-[58px] h-[37.86px] md:w-[70px] md:h-[45.66px] " src="/icons/quote.svg" alt="quote" width={70} height={45.66} />
                     {/* End of Quote Icon */}
 
                     {/* Navigation Buttons */}
-                    <div className="absolute top-1/2 -translate-y-1/2 -left-6 -right-6 flex justify-between pointer-events-none z-1">
+                    <div className="absolute top-1/2 -translate-y-1/2 -left-4 -right-4 md:-left-6 md:-right-6 flex justify-between pointer-events-none z-1">
                         <button onClick={() => swiperRef.current?.slidePrev()}
 
-                            className="w-12 h-12 rounded-full primary flex items-center justify-center text-white cursor-pointer pointer-events-auto shadow-lg hover:scale-110 transition-transform disabled:opacity-50"
+                            className="w-8 h-8 md:w-12 md:h-12 rounded-full primary flex items-center justify-center text-white cursor-pointer pointer-events-auto shadow-lg hover:scale-110 transition-transform disabled:opacity-50"
                         >
                             <svg
-                                className="w-6 h-6 rotate-180"
+                                className="w-4 h-4 md:w-6 md:h-6 rotate-180"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -177,10 +215,10 @@ export default function Test() {
 
                         <button onClick={() => swiperRef.current?.slideNext()}
 
-                            className="w-12 h-12 rounded-full primary flex items-center justify-center text-white cursor-pointer pointer-events-auto shadow-lg hover:scale-110 transition-transform disabled:opacity-50"
+                            className="w-8 h-8 md:w-12 md:h-12 rounded-full primary flex items-center justify-center text-white cursor-pointer pointer-events-auto shadow-lg hover:scale-110 transition-transform disabled:opacity-50"
                         >
                             <svg
-                                className="w-6 h-6"
+                                className="w-4 h-4 md:w-6 md:h-6"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"

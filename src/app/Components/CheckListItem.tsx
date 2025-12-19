@@ -11,7 +11,7 @@ interface CheckListItemProps {
 export default function CheckListItem({
     children,
     bgClass = "bg-[#32CC3F]",
-    bgSize = "w-5 h-5 md:w-6 md:h-6",
+    bgSize = "w-5 h-5 xxl:w-6 xxl:h-6",
     svgSize = "w-4 h-4",
     svgColor = "#fff",
     textColor = "text-text-dark ",
@@ -24,7 +24,7 @@ export default function CheckListItem({
                     <path d="M6 12L10.2426 16.2426L18.727 7.75732" stroke={svgColor} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
             </div>
-            <div className={` text-xl text-${textColor} font-open-sans font-semibold`}>{children}</div>
+            <div className={` text-sm md:text-base xxl:text-xl text-${textColor} font-open-sans font-semibold leading-tight`}>{children}</div>
         </div>
     );
 }

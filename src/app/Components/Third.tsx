@@ -21,9 +21,9 @@ export default function Third() {
         },
     ]
     return (
-        <section id="third-section" className="grid grid-cols-2 grid-row-2 gap-10 fp max-container text-accent text-[42px] font-semibold font-general-sans">
+        <section id="third-section" className="grid grid-cols-1 grid-rows-4 sm:grid-cols-2 sm:grid-rows-2  gap-5 md:gap-8 xl:gap-10 fp max-container text-accent text-[42px] font-semibold font-general-sans">
             {data.map((item, index) => (
-                <div key={index} className="relative flex items-center justify-center min-h-[300px] bg-cover bg-center rounded-[20px] after:rounded-[20px] after:content-[''] after:absolute after:inset-0 after:overlay" style={{ backgroundImage: `url(${item.image})` }}>
+                <div key={index} className="relative flex items-center justify-center h-[200px] md:h-[250px] xl:h-[300px] bg-cover bg-center rounded-[20px] after:rounded-[20px] after:content-[''] after:absolute after:inset-0 after:overlay" style={{ backgroundImage: `url(${item.image})` }}>
                     <div className="hidden z-10 relative"> {item.title}</div>
                 </div>
             ))}

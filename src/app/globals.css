@@ -15,11 +15,23 @@
   --color-text-light: #5A5A5A;
   --color-background: #F6F6F6;
 
+  --text-xxs: 0.625rem;
+
 
   --font-open-sans: var(--font-open-sans);
   --font-general-sans: "GeneralSans", sans-serif;
   --font-lato: var(--font-lato);
   --font-syne: var(--font-syne);
+
+  /* Mobile Small (320px) */
+  --breakpoint-msm: 20rem;
+  /* Mobile Medium (375px) */
+  --breakpoint-mmd: 23.4375rem;
+  /* Mobile Large (425px) */
+  --breakpoint-mlg: 26.5625rem;
+  /* Laptop large (1440px) */
+  --breakpoint-xxl: 90rem;
+
 }
 
 @layer base {
@@ -28,15 +40,15 @@
   }
 
   p {
-    @apply font-open-sans font-normal text-base text-text-light;
+    @apply font-open-sans font-normal text-sm md:text-base text-text-light;
   }
 }
 
 @layer utilities {
 
-  /* .swiper-slide {
+  .swiper-slide {
     height: auto !important;
-  } */
+  }
 
   .max-container {
     max-width: 1440px;
