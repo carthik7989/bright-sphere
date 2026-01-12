@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import useFloatingAnimation from "../hooks/useFloatingAnimation";
+import FadeAnimation from "./FadeAnimation";
 
 export default function Toolkit() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -19,7 +20,7 @@ export default function Toolkit() {
     ]
     useFloatingAnimation(containerRef, {
         selector: ".float-icon",
-        yPercentRange: 15,
+        yPercentRange: 20,
         duration: 1.5,
         ease: "power1.inOut",
     });
@@ -54,15 +55,20 @@ export default function Toolkit() {
                     <h2 className="text-2xl sm:text-3xl lg:text-[32px] xl:text-4xl xxl:text-[42px] font-general-sans font-semibold text-text-dark"><span className="gradient-text">AI Toolkit </span>Students Use</h2>
 
 
-                    <div className="grid grid-cols-2 grid-rows-repeat[3,auto] sm:grid-cols-3 sm:grid-rows-2 lg:grid-cols-2 lg:grid-rows-3 gap-3 md:gap-5 text-center">
+                    <FadeAnimation
+                        selector=".toolkit-card"
+                        animation="fadeUp"
+                        stagger={0.1}
+                        className="grid grid-cols-2 grid-rows-repeat[3,auto] sm:grid-cols-3 sm:grid-rows-2 lg:grid-cols-2 lg:grid-rows-3 gap-3 md:gap-5 text-center"
+                    >
                         {toolkitData.map((item, index) => (
-                            <div key={index} className="flex flex-col justify-center items-center gap-3 bg-white rounded-[15px] p-3 md:p-6">
+                            <div key={index} className="toolkit-card flex flex-col justify-center items-center gap-3 bg-white rounded-[15px] p-3 md:p-6">
                                 <div className="text-4xl md:text-[42px]  xxl:text-[64px] font-general-sans font-semibold gradient-text leading-none">0{index + 1}</div>
                                 <div className="text-sm md:text-base  xxl:text-[22px] font-lato font-medium leading-tight">{item}</div>
                             </div>
                         ))}
 
-                    </div>
+                    </FadeAnimation>
                 </div>
                 {/* End of Right Column */}
             </div>

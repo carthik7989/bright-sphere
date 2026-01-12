@@ -14,7 +14,7 @@ export default function Pill({ icon, text, alt, iconClassName, wrapperClassName,
 
         <div className={`${wrapperClassName} relative inline-flex items-center justify-center`}>
             {/* Glow background */}
-            <div className="absolute inset-0 rounded-full primary blur-xl opacity-70"></div>
+            <div className="absolute inset-0 rounded-full primary blur-xl opacity-70 "></div>
 
             {/* Main pill */}
             <div className="relative flex gap-2 md:gap-3 items-center bg-white rounded-full px-4 py-2 md:px-5 md:py-3 shadow-xl">

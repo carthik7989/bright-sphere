@@ -11,7 +11,7 @@ export default function Hero() {
     // Floating animation for AI icons
     useFloatingAnimation(containerRef, {
         selector: ".float-icon",
-        yPercentRange: 15,
+        yPercentRange: 20,
         duration: 1,
         ease: "power1.inOut",
     });

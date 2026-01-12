@@ -1,3 +1,5 @@
+import FadeAnimation from "./FadeAnimation";
+
 export default function Different() {
     const differentData = [
         {
@@ -34,9 +36,14 @@ export default function Different() {
             </div>
             {/* End of First Row */}
 
-            <ul className="w-full grid grid-cols-1 grid-rows-repeat[6,auto] sm:grid-cols-2 sm:grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 gap-6 md:gap-8 xl:gap-10 xxl:gap-18">
+            <FadeAnimation
+                selector="li"
+                animation="fadeUp"
+                stagger={0.12}
+                className="w-full grid grid-cols-1 grid-rows-repeat[6,auto] sm:grid-cols-2 sm:grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 gap-6 md:gap-8 xl:gap-10 xxl:gap-18"
+            >
                 {differentData.map((item, index) => (
-                    <li key={index} className="relative flex flex-col gap-3 md:gap-5 p-8 rounded-l-[50px] hover:rounded-l-[40px] bg-white overflow-hidden transition-all duration-300 ease-in-out group">
+                    <li key={index} className="relative flex flex-col gap-3 md:gap-5 p-8 rounded-l-[50px] hover:rounded-l-[40px] hover:cursor-pointer bg-white overflow-hidden transition-[border-radius] duration-300 ease-in-out group list-none">
                         {/* Gradient overlay - fades in on hover */}
                         <div className="absolute inset-0 primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"></div>
 
@@ -45,7 +52,7 @@ export default function Different() {
                         <p className="relative z-10 group-hover:text-white transition-colors duration-300">{item.description}</p>
                     </li>
                 ))}
-            </ul>
+            </FadeAnimation>
 
         </section>
     );

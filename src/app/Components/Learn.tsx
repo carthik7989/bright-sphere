@@ -175,7 +175,7 @@ export default function Learn() {
                                     <div className="text-sm sm:text-base xxl:text-lg font-open-sans font-bold">{statistic.title}</div>
                                     <div className="flex items-center gap-2">
                                         {statistic.icon && (
-                                            <Image className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] xxl:w-[42px] xxl:h-[42px]" src={statistic.icon} alt="Star" width={27} height={27} />
+                                            <Image className="w-[20px] h-[20px] md:w-[24px] md:h-[24px] xxl:w-[32px] xxl:h-[32px]" src={statistic.icon} alt="Star" width={27} height={27} />
                                         )}
                                         <div className="text-3xl sm:text-4xl md:text-3xl lg:text-4xl xxl:text-[42px] font-general-sans font-semibold leading-none">{statistic.value}</div>
                                     </div>

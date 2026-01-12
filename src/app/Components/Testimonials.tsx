@@ -20,29 +20,29 @@ export default function Testimonials() {
             name: "Ashwini, Grade 7",
             quote:
                 "My daughter became confident after presenting her AI project. Her first website meant everything to her.",
-            image: "/images/girl.webp",
+            image: "/images/testimonials/testimonial-girl-1.webp",
         },
         {
             name: "Pooja Shetty, Grade 6",
             quote:
                 "The interactive sessions were amazing. He learned so much about AI tools safely.",
-            image: "/images/ai-innovator.webp",
+            image: "/images/testimonials/testimonial-parents-1.webp",
         },
         {
             name: "Hemanth, Grade 8",
             quote:
                 "Finally a course that focuses on creativity and not just coding syntax. Highly recommended!",
-            image: "/images/creative-maker.webp",
+            image: "/images/testimonials/testimonial-boy-1.webp",
         },
         {
             name: "Mohan Das, Grade 5",
             quote: "She built her own chatbot! The confidence boost is real.",
-            image: "/images/confident.webp",
+            image: "/images/testimonials/testimonial-parents-2.webp",
         },
         {
             name: "Harshitha, Grade 9",
             quote: "Practical skills that help with school projects immediately.",
-            image: "/images/future-ready.webp",
+            image: "/images/testimonials/testimonial-girl-2.webp",
         },
     ];
 
@@ -129,7 +129,7 @@ export default function Testimonials() {
                                     swiperRef.current?.slideToLoop(index);
                                 }}
                             >
-                                {/* <Image src={testimonial.image} alt={testimonial.name} fill className="object-cover" /> */}
+                                <Image src={testimonial.image} alt={testimonial.name} fill className="object-cover" />
                             </div>
                         );
                     })}

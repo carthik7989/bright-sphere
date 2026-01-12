@@ -1,4 +1,5 @@
 import Image from "next/image";
+import FadeAnimation from "./FadeAnimation";
 
 export default function Certification() {
     const certificationData = [
@@ -27,9 +28,14 @@ export default function Certification() {
         <section className="w-full flex flex-col items-center gap-11 fp bg-white  max-container  ">
             <h2 className="text-center text-2xl sm:text-3xl lg:text-[32px] xl:text-4xl xxl:text-[42px] font-semibold font-general-sans"> <span className="gradient-text">Certification  </span> That Matters</h2>
 
-            <ul className="w-full grid grid-cols-1 grid-rows-4 sm:grid-cols-2 sm:grid-rows-2 xl:grid-cols-4 xl:grid-rows-1 gap-6 xxl:gap-10 text-center">
+            <FadeAnimation
+                selector="li"
+                animation="fadeUp"
+                stagger={0.12}
+                className="w-full grid grid-cols-1 grid-rows-4 sm:grid-cols-2 sm:grid-rows-2 xl:grid-cols-4 xl:grid-rows-1 gap-6 xxl:gap-10 text-center"
+            >
                 {certificationData.map((item, index) => (
-                    <li key={index} className="relative">
+                    <li key={index} className="relative list-none">
                         <div className="absolute inset-0 z-0 primary blur-3xl opacity-50"></div>
                         <article className="relative h-full z-1 flex flex-col items-center gap-3 md:gap-5 lg:gap-7  bg-white rounded-[15px] p-5 md:p-8   ">
 
@@ -43,7 +49,7 @@ export default function Certification() {
                         </article>
                     </li>
                 ))}
-            </ul>
+            </FadeAnimation>
 
         </section>
     );
