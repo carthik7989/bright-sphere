@@ -30,7 +30,7 @@ export default function Toolkit() {
                 {/* Left Column */}
                 <div ref={containerRef} className="w-full lg:w-1/2 h-[120px] mmd:h-[140px] mlg:h-[160px] md:h-[200px] lg:h-auto relative ">
                     {/* Leanardo AI */}
-                    <Image className=" float-icon absolute -top-5 left-2 xxl:top-20 xl:left-20 w-[15%] mlg:w-[13%] sm:w-[10%] lg:w-[20%] xl:w-[16%] " src="/icons/ai/leonardo.svg" alt="Leonardo AI" width={70} height={68} />
+                    <Image className=" float-icon absolute -top-5 left-2 xxl:top-20 xl:left-20 w-[15%] mlg:w-[13%] sm:w-[10%] lg:w-[20%] xl:w-[16%] " src="/icons/ai/claude.svg" alt="Claude AI" width={512} height={509} />
                     {/* Gemini AI */}
                     <Image className="float-icon absolute top-8 right-20 mmd:right-25 sm:top-12 sm:right-45 lg:top-0 lg:right-25 xl:top-5 xxl:top-25 xxl:right-40 w-[25%] mlg:w-[20%] sm:w-[17%] lg:w-[32%] xl:w-[25%] " src="/icons/ai/gemini-text.svg" alt="Gemini AI" width={249} height={59} />
                     {/* Bard AI */}
@@ -43,10 +43,12 @@ export default function Toolkit() {
                     <Image className="float-icon absolute bottom-8 right-0 mlg:bottom-12 mlg:right-10 md:bottom-15 lg:bottom-60 xl:bottom-50 xxl:bottom-60 xxl:right-10 w-[25%] mlg:w-[22%] sm:w-[18%] lg:w-[45%] xl:w-[35%] xxl:w-[30%] " src="/icons/ai/gamma.svg" alt="Gamma AI" width={1111} height={192} />
                     {/* Lovable AI */}
                     <Image className="float-icon absolute -bottom-5 left-0 lg:bottom-10 xl:bottom-10  xxl:bottom-0 xxl:left-0 w-[28%] mlg:w-[25%] sm:w-[20%] lg:w-[35%] xl:w-[30%] " src="/icons/ai/lovable-text.svg" alt="Lovable AI" width={911} height={155} />
+                    {/* Notebook LM AI */}
+                    <Image className="float-icon absolute -bottom-5 right-20 mmd:right-25 sm:right-35 md:right-40 lg:right-0 lg:bottom-10 xl:bottom-10  xxl:bottom-0 xxl:right-0 w-[30%] md:w-[25%] lg:w-[45%] xl:w-[40%] " src="/icons/ai/notebook-lm.svg" alt="Notebook LM AI" width={1252.75} height={131.05} />
                     {/* Perplexity AI */}
                     <Image className="float-icon absolute bottom-3 left-15 mlg:bottom-5 sm:left-30 md:left-50 lg:left-0 lg:bottom-30 xl:bottom-35 xxl:bottom-30 xxl:left-0 w-[38%] mlg:w-[35%] sm:w-[28%] lg:w-[50%] xl:w-[40%] " src="/icons/ai/perplexity-text.svg" alt="Perplexity AI" width={1588} height={400} />
                     {/* Loom AI */}
-                    <Image className="float-icon absolute -bottom-5 right-0 lg:bottom-20  xxl:bottom-20 xxl:right-20 w-[23%] mlg:w-[20%] sm:w-[17%] lg:w-[33%] xl:w-[25%] " src="/icons/ai/loom-text.svg" alt="Loom AI" width={117} height={48} />
+                    <Image className="float-icon absolute -bottom-5 right-0 lg:bottom-30 xl:bottom-25  xxl:bottom-20 xxl:right-20 w-[23%] mlg:w-[20%] sm:w-[17%] lg:w-[33%] xl:w-[25%] " src="/icons/ai/loom-text.svg" alt="Loom AI" width={117} height={48} />
                 </div>
                 {/* End of Left Column */}
 

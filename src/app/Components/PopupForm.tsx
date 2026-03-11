@@ -163,6 +163,7 @@ export default function PopupForm() {
                             <label htmlFor="grade" className="font-lato font-semibold">Select Grade <span className="text-red-500">*</span></label>
                             <select className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-secondary bg-white" name="grade" defaultValue="" required disabled={isSubmitting}>
                                 <option value="" disabled>Select Grade</option>
+                                <option value="grade-5">Grade 5</option>
                                 <option value="grade-6">Grade 6</option>
                                 <option value="grade-7">Grade 7</option>
                                 <option value="grade-8">Grade 8</option>

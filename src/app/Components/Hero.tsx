@@ -27,7 +27,7 @@ export default function Hero() {
 
                     <Pill wrapperClassName="lg:hidden" text="Real-world AI Skills" />
                     <h1 className="text-2xl mlg:text-3xl sm:text-4xl md:text-[40px] lg:text-[44px] xl:text-[52px] xxl:text-[64px] font-semibold font-general-sans text-text-dark"><span className="tm">AiMS</span> – <span className="gradient-text">AI For Mentoring Students</span></h1>
-                    <p className="text-lg md:text-xl xl:text-2xl font-medium font-lato text-text-dark leading-tight">Live Online Skill Development Program for Grades 6–12</p>
+                    <p className="text-lg md:text-xl xl:text-2xl font-medium font-lato text-text-dark leading-tight">Live Online Skill Development Program for Grades 5–12</p>
 
                 </div>
                 {/* End of First Inner Row */}
@@ -55,15 +55,17 @@ export default function Hero() {
                 {/* End of Left */}
 
                 {/* Right  */}
-                {/* Leonardo */}
-                <Image className="float-icon absolute -top-3 right-7 md:top-0 md:right-18 lg:top-10 lg:right-50 xl:right-65 xxl:top-10 xxl:right-70 w-[12%] sm:w-[10%] lg:w-[6%]  xxl:w-[6%]" src="/icons/ai/leonardo.svg" alt="Leonardo" width={70} height={68} />
+                {/* Notebook LM */}
+                <Image className="float-icon absolute bottom-9 mlg:bottom-12 right-0 mlg:-right-2 sm:bottom-10 lg:right-35 xl:right-45 xxl:bottom-10 xxl:right-30 w-[22%] lg:w-[12%]  xxl:w-[13%]" src="/icons/ai/notebook-lm.svg" alt="notebooklm" width={1252.75} height={131.05} />
+                {/* Claude */}
+                <Image className="float-icon absolute top-2 right-7 md:top-0 md:right-18 lg:top-10 lg:right-50 xl:right-65 xxl:top-10 xxl:right-70 w-[10%] sm:w-[10%] lg:w-[6%] xl:w-[5%]" src="/icons/ai/claude.svg" alt="claude" width={512} height={509} />
                 {/* Gemini */}
-                <Image className="float-icon absolute top-13 right-0 mlg:top-18 sm:right-10 md:top-30 lg:right-50 xl:top-35 xl:right-55 xxl:top-40 xxl:right-65 w-[18%] sm:w-[15%] lg:w-[10%] xl:w-[10%] xxl:w-[12%]" src="/icons/ai/gemini-text.svg" alt="Gemini" width={249} height={59} />
+                <Image className="float-icon absolute top-13 right-0 mlg:top-18 sm:top-22 sm:right-10 md:top-30 lg:right-50 xl:top-35 xl:right-55 xxl:top-40 xxl:right-65 w-[18%] sm:w-[15%] lg:w-[10%] xl:w-[10%] xxl:w-[12%]" src="/icons/ai/gemini-text.svg" alt="Gemini" width={249} height={59} />
                 {/* Bard */}
-                <Image className="float-icon absolute top-23 right-0 mlg:top-35 md:top-55 lg:top-40 lg:right-20 xl:top-50 xl:right-25 xxl:top-50 xxl:right-25 w-[16%] sm:w-[14%] lg:w-[10%] xl:w-[9%] xxl:w-[10%]" src="/icons/ai/bard-text.svg" alt="Bard" width={362} height={127} />
+                <Image className="float-icon absolute top-23 right-0 mlg:top-28 sm:top-35 md:top-45 lg:top-40 lg:right-20 xl:top-50 xl:right-25 xxl:top-50 xxl:right-25 w-[16%] sm:w-[14%] lg:w-[10%] xl:w-[9%] xxl:w-[10%]" src="/icons/ai/bard-text.svg" alt="Bard" width={362} height={127} />
 
                 {/* Gamma */}
-                <Image className="float-icon absolute bottom-15 right-3 sm:right-15 lg:bottom-20 lg:right-50 xl:right-60 xxl:bottom-20 xxl:right-60 w-[16%] sm:w-[14%] lg:w-[11%] xxl:w-[10%]" src="/icons/ai/gamma.svg" alt="Gamma" width={1111} height={192} />
+                <Image className="float-icon absolute bottom-15 mmd:bottom-18 mlg:bottom-22 right-3 sm:right-15 lg:bottom-20 lg:right-50 xl:bottom-25 xl:right-60 xxl:bottom-25 xxl:right-60 w-[16%] sm:w-[14%] lg:w-[11%] xxl:w-[10%]" src="/icons/ai/gamma.svg" alt="Gamma" width={1111} height={192} />
                 {/* End of Right */}
 
                 <Image className="w-[60%] mlg:w-[63%] sm:w-[50%] lg:w-[30%] xl:w-[28%]" src="/images/robot.webp" alt="Robot" width={356} height={411} />
