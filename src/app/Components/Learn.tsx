@@ -83,7 +83,7 @@ export default function Learn() {
         },
         {
             title: "Hands-on Projects",
-            icon: "/icons/calendar.svg",
+            icon: "/icons/folders.svg",
 
         }
     ]
